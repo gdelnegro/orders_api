@@ -38,7 +38,7 @@ class Company(models.Model):
         return "%s" % self.name
 
 
-class Items(models.Model):
+class Item(models.Model):
     created_at = models.DateTimeField(_('DTSM1'), auto_now_add=True, null=True, blank=True, help_text=_('DTST1'))
     updated_at = models.DateTimeField(_('DTSM2'), auto_now=True, null=True, blank=True, help_text=_('DTST2'))
     code = models.CharField(max_length=200, unique=False)
@@ -46,12 +46,13 @@ class Items(models.Model):
     retail_price = models.DecimalField(decimal_places=2, max_digits=10)
     quantity = models.PositiveIntegerField()
     available = models.BooleanField()
+    client = models.ForeignKey(Client, related_name='item_client')
 
     def __str__(self):
-        return "%s" % self.name
+        return "%s" % self.code
 
     def __unicode__(self):
-        return "%s" % self.name
+        return "%s" % self.code
 
 
 class Status(models.Model):
@@ -72,7 +73,7 @@ class Order(models.Model):
     company = models.ForeignKey(Company, related_name='order_company')
     campaign = models.CharField(max_length=200, unique=False)
     status = models.ForeignKey(Status, related_name='order_status')
-    items = models.ManyToManyField(Items, related_name='order_itens')
+    items = models.ManyToManyField(Item, related_name='order_itens')
 
     def __str__(self):
         return "%s - %s" % (self.company, self.campaign)

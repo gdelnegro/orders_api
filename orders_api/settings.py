@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework',
     'translation_client',
+    'phonenumber_field',
     'api',
     'orders_api',
-    'phonenumber_field'
 ]
 
 REST_FRAMEWORK = {

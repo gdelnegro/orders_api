@@ -30,7 +30,7 @@ class CustomModelAdminMixin(object):
 
 
 @admin.register(Client)
-class ClientsAdmin(CustomModelAdminMixin, admin.ModelAdmin):
+class ClientAdmin(CustomModelAdminMixin, admin.ModelAdmin):
     pass
 
 
@@ -44,8 +44,8 @@ class OrdersAdmin(CustomModelAdminMixin, admin.ModelAdmin):
     pass
 
 
-@admin.register(Items)
-class ItemsAdmin(CustomModelAdminMixin, admin.ModelAdmin):
+@admin.register(Item)
+class ItemAdmin(CustomModelAdminMixin, admin.ModelAdmin):
     pass
 
 

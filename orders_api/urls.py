@@ -17,8 +17,10 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 from rest_framework.authtoken import views as token_views
+from api.views import *
 
 router = routers.DefaultRouter()
+router.register(r'orders', OrderViewSet, 'orders')
 
 urlpatterns = [
     url(r'^api/', include(router.urls, namespace='api'), ),
