@@ -37,7 +37,7 @@ class Company(models.Model):
     def __unicode__(self):
         return "%s" % self.name
 
-
+# todo: add retail and catalog price validation
 class Item(models.Model):
     created_at = models.DateTimeField(_('DTSM1'), auto_now_add=True, null=True, blank=True, help_text=_('DTST1'))
     updated_at = models.DateTimeField(_('DTSM2'), auto_now=True, null=True, blank=True, help_text=_('DTST2'))
@@ -53,6 +53,10 @@ class Item(models.Model):
 
     def __unicode__(self):
         return "%s" % self.code
+
+    class Meta:
+        unique_together = ("code", "client")
+        index_together = ("code", "client")
 
 
 class Status(models.Model):

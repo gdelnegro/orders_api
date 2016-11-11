@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from .models import *
+from api.forms import *
 
 # Register your models here.
 class CustomModelAdminMixin(object):
@@ -46,7 +47,7 @@ class OrdersAdmin(CustomModelAdminMixin, admin.ModelAdmin):
 
 @admin.register(Item)
 class ItemAdmin(CustomModelAdminMixin, admin.ModelAdmin):
-    pass
+    form = ItemAdminForm
 
 
 @admin.register(Status)

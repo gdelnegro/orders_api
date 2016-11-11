@@ -20,6 +20,10 @@ from rest_framework.authtoken import views as token_views
 from api.views import *
 
 router = routers.DefaultRouter()
+router.register(r'clients', ClientViewSet, 'clients')
+router.register(r'companies', CompanyViewSet, 'companies')
+router.register(r'items', ItemViewSet, 'items')
+router.register(r'order-status', StatusViewSet, 'order-status')
 router.register(r'orders', OrderViewSet, 'orders')
 
 urlpatterns = [
