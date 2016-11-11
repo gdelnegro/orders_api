@@ -7,7 +7,7 @@ from django.dispatch import receiver
 from phonenumber_field.modelfields import PhoneNumberField
 
 
-class Clients(models.Model):
+class Client(models.Model):
     created_at = models.DateTimeField(_('DTSM1'), auto_now_add=True, null=True, blank=True, help_text=_('DTST1'))
     updated_at = models.DateTimeField(_('DTSM2'), auto_now=True, null=True, blank=True, help_text=_('DTST2'))
     name = models.CharField(_('name'), help_text=_('name'), max_length=200, unique=False)
