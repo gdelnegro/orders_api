@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework',
     'translation_client',
+    'api',
+    'orders_api',
+    'phonenumber_field'
 ]
 
 MIDDLEWARE = [
